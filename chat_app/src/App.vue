@@ -26,7 +26,7 @@
           </b-row>
         </b-container>
       </div>
-    </template>
+</template>
 
 <script>
     import MessageInput from "./components/MessageInput.vue";
@@ -40,7 +40,7 @@
     let pusher;
 
     export default {
-      name: "app",
+      name: 'app',
       components: {
         MessageInput,
         NavBar,
@@ -51,7 +51,7 @@
       data: function() {},
       methods: {},
     };
-    </script>
+</script>
 
 <style>
     .messages-main {
@@ -88,4 +88,4 @@
     .logged_user {
       color: white;
     }
-    </style>
+</style>
