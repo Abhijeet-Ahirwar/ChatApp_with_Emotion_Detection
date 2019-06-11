@@ -1,5 +1,5 @@
 {
-  "name": "pusher-chat-sentiment-analysis",
+  "name": "chat_app",
   "version": "0.1.0",
   "private": true,
   "scripts": {
