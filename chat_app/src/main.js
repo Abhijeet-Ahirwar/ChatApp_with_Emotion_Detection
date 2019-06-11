@@ -1,5 +1,6 @@
 import Vue from 'vue'
 import './plugins/bootstrap-vue'
+import './plugins/bootstrap-vue'
 import './plugins/axios'
 import App from './App.vue'
 
