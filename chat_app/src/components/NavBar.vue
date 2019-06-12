@@ -4,7 +4,7 @@
             <b-navbar-brand href="#">CHAT WINDOW</b-navbar-brand>
             <b-collapse is-nav id="nav_collapse">
                 <b-navbar-nav class="ml-auto logged_user" >
-                    Welcome back {{logged_user}}
+                    Welcome back {{logged_user}}!
                 </b-navbar-nav>
             </b-collapse>
         </b-navbar>

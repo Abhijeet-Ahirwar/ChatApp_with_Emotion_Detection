@@ -1,0 +1,31 @@
+<html>
+
+<body>
+    <div class="container">
+        <div class="row">
+            <h3>Add new User</h3>
+        </div>
+        <div class="row" style="margin-top:20px">
+            <div class="col-md-12">
+                <form role="form" action="" method="POST">
+                    <div class="form-group">
+                        <label for="name">User_Name</label>
+                        <input class="form-control" name="name" placeholder="NAME" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="num">Password</label>
+                        <input type="password" class="form-control" name="num" placeholder="Password" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="email">EMAIL</label>
+                       <input class="form-control" name="email" placeholder="EMAIL" required>
+                    </div>
+                    <input type="hidden" name="SECRET_KEY" value="rmotr">
+                    <button type="submit" name='submit' class="btn btn-default" value="Form sent!">Submit</button>
+                </form>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>
