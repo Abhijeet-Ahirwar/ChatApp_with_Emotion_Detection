@@ -31,7 +31,7 @@ def register():
     if request.method == 'POST':
         email = request.form['email']
         username = request.form['name']
-        password = request.form['num']
+        password = request.form['pass']
         password = generate_password_hash(password)
         try:
             new_user = User(username=username, password=password)
