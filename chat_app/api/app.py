@@ -16,7 +16,7 @@ pusher = pusher.Pusher(
 	cluster=os.getenv('PUSHER_CLUSTER'),
 	ssl=True)
 app.config['JWT_SECRET_KEY'] = '9874563210'  # Important
-app.secret_key='1234567890'
+# app.secret_key='1234567890'
 jwt = JWTManager(app)
 @app.teardown_appcontext
 def shutdown_session(exception=None):

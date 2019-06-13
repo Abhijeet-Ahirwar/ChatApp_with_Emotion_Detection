@@ -26,11 +26,10 @@
          </b-button>
          <b-button 
             v-on:click="register"  
-            class="btn-block"
+            class="btn-block register"
           >
-          Sign Up
+          SIGN UP
          </b-button>
-
         </div>
     </template>
 
@@ -85,5 +84,9 @@
     }
     .input-form {
       margin-bottom: 9px;
+    }
+    .register{
+      background-color: #007bff !important;
+      border: 1px solid #007bff;
     }
     </style>
