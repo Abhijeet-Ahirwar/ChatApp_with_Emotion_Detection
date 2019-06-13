@@ -1,6 +1,6 @@
 # app.py
 from textblob import TextBlob
-from flask import Flask, request, jsonify, render_template, redirect
+from flask import Flask, request, jsonify, render_template, redirect, flash,url_for
 import os
 import pusher
 from database import db_session
@@ -16,6 +16,7 @@ pusher = pusher.Pusher(
 	cluster=os.getenv('PUSHER_CLUSTER'),
 	ssl=True)
 app.config['JWT_SECRET_KEY'] = '9874563210'  # Important
+app.secret_key='1234567890'
 jwt = JWTManager(app)
 @app.teardown_appcontext
 def shutdown_session(exception=None):
@@ -25,24 +26,45 @@ def shutdown_session(exception=None):
 def index():
     return jsonify("Pong!")
 
-@app.route('/api/register', methods=["POST"])
+@app.route('/api/register', methods=['POST','GET'])
 def register():
-	data = request.get_json()
-	username = data.get("username")
-	password = generate_password_hash(data.get("password"))
-	try:
-		new_user = User(username=username, password=password)
-		db_session.add(new_user)
-		db_session.commit()
-	except:
-		return jsonify({
-                "status": "error",
-                "message": "Could not add user"
-            })
-	return jsonify({
-            "status": "success",
-            "message": "User added successfully"
-        }), 201
+    if request.method == 'POST':
+        email = request.form['email']
+        username = request.form['name']
+        password = request.form['num']
+        password = generate_password_hash(password)
+        try:
+            new_user = User(username=username, password=password)
+            db_session.add(new_user)
+            db_session.commit()
+        except:
+            return jsonify({
+                    "status": "error",
+                    "message": "Could not add user"
+                })
+        return jsonify({
+                "status": "success",
+                "message": "User added successfully"
+            }), 201
+
+    return render_template('forms/signup.html')
+
+	# data = request.get_json()
+	# username = data.get("username")
+	# password = generate_password_hash(data.get("password"))
+	# try:
+	# 	new_user = User(username=username, password=password)
+	# 	db_session.add(new_user)
+	# 	db_session.commit()
+	# except:
+	# 	return jsonify({
+ #                "status": "error",
+ #                "message": "Could not add user"
+ #            })
+	# return jsonify({
+ #            "status": "success",
+ #            "message": "User added successfully"
+ #        }), 201
 
 
 @app.route('/api/login', methods=["POST"])

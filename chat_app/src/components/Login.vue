@@ -24,6 +24,12 @@
           >
           LOG IN
          </b-button>
+         <b-button 
+            v-on:click="register"  
+            class="btn-block"
+          >
+          Sign Up
+         </b-button>
 
         </div>
     </template>
@@ -41,6 +47,9 @@
         };
       },
       methods: {
+        register:function(){
+          window.location.href = 'http://localhost:5000/api/register';
+        },
         login: function() {
           this.loading = true;
           this.axios
@@ -68,7 +77,7 @@
     <style scoped>
     .login {
       width: 500px;
-      border: 1px solid #cccccc;
+      border: 1px solid #007bff;
       background-color: #ffffff;
       margin: auto;
       margin-top: 200px;
